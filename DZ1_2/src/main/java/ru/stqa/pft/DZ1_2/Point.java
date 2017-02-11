@@ -1,3 +1,5 @@
+package ru.stqa.pft.DZ1_2;
+
 /**
  * Created by Summoner on 11.02.2017.
  */

@@ -1,6 +1,4 @@
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.Match;
-
-import java.util.Scanner;
+package ru.stqa.pft.DZ1_2;
 
 /**
  * Created by Summoner on 11.02.2017.

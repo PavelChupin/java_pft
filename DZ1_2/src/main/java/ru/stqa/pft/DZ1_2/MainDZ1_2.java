@@ -15,6 +15,8 @@ public class MainDZ1_2 {
         System.out.println("Расстояние между двумя точками равно: " + p3.distance(p1, p2));
 
         System.out.println("Расстояние между двумя точками равно: " + Point.distance1(p1, p2));
+
+        System.out.println("Расстояние между двумя точками равно: " + p1.distance(p2));
     }
 
     public static double distance(Point p1, Point p2)

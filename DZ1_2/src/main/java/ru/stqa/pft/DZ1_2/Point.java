@@ -47,6 +47,20 @@ package ru.stqa.pft.DZ1_2;
         }
     }
 
+    public double distance(Point p)
+    {
+        if(this.x == p.getX()) {
+            return Math.abs(this.y - p.getY());
+        }
+        else
+        if (this.y == p.getY()){
+            return Math.abs(this.x - p.getX());
+        }
+        else {
+            return Math.sqrt(Math.abs(this.x - p.getX()) * Math.abs(this.x - p.getX()) + Math.abs(this.y - p.getY()) * Math.abs(this.y - p.getY()));
+        }
+    }
+
     public static double distance1(Point p1, Point p2)
     {
         if(p1.getX() == p2.getX()) {

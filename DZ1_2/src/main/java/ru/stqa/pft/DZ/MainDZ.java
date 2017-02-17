@@ -1,9 +1,9 @@
-package ru.stqa.pft.DZ1_2;
+package ru.stqa.pft.DZ;
 
 /**
  * Created by Summoner on 11.02.2017.
  */
-public class MainDZ1_2 {
+public class MainDZ {
     public static void main(String[] args) {
         double x1 = 1, y1 = 1, x2 = 5, y2 = 5;
 

@@ -6,7 +6,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.stqa.pft.addressbook.model.GroupData;
 
 /**
- * Created by Summoner on 26.02.2017.
+ * Created by Summoner on 27.02.2017.
  */
 public class GroupHelper extends HelperBase {
 
@@ -14,7 +14,7 @@ public class GroupHelper extends HelperBase {
         super(wd);
     }
 
-    public void returnToGroupPage() {
+    public void returnGroupToPage() {
         click(By.linkText("group page"));
     }
 
@@ -24,6 +24,9 @@ public class GroupHelper extends HelperBase {
 
     public void fillGroupForm(GroupData groupData) {
         type(By.name("group_name"), groupData.getName());
+        if (!wd.findElement(By.xpath("//div[@id='content']/form/select//option[1]")).isSelected()) {
+            click(By.xpath("//div[@id='content']/form/select//option[1]"));
+        }
         type(By.name("group_header"), groupData.getHeader());
         type(By.name("group_footer"), groupData.getFooter());
     }
@@ -32,15 +35,15 @@ public class GroupHelper extends HelperBase {
         click(By.name("new"));
     }
 
-    public void deleteSelectedGroups() {
-        click(By.name("delete"));
-    }
-
     public void selectGroup() {
         click(By.name("selected[]"));
     }
 
-    public void initGroupModificaation() {
+    public void deleteSelectedGroups() {
+        click(By.name("delete"));
+    }
+
+    public void initGroupModification() {
         click(By.name("edit"));
     }
 

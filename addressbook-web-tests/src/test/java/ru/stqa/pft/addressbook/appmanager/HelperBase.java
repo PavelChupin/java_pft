@@ -22,8 +22,14 @@ public class HelperBase {
 
     protected void type(By locator, String text) {
         click(locator);
-        wd.findElement(locator).clear();
-        wd.findElement(locator).sendKeys(text);
+
+        if (text != null){ /*Если параметр к заполнению не пустой*/
+            String existingText = wd.findElement(locator).getAttribute("value"); //Получим текущее значение в полее ввода
+            if (! text.equals(existingText)){ /*Если текущее значение не совпадает с уже заполненом в поле, то заполняем новым значением.*/
+                wd.findElement(locator).clear();
+                wd.findElement(locator).sendKeys(text);
+            }
+        }
     }
 
     public boolean isAlertPresent() {

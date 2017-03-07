@@ -8,6 +8,7 @@ import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.List;
 
 /**
@@ -29,9 +30,9 @@ public class GroupHelper extends HelperBase {
 
     public void fillGroupForm(GroupData groupData) {
         type(By.name("group_name"), groupData.getName());
-        if (!wd.findElement(By.xpath("//div[@id='content']/form/select//option[1]")).isSelected()) {
+        /*if (!wd.findElement(By.xpath("//div[@id='content']/form/select//option[1]")).isSelected()) {
             click(By.xpath("//div[@id='content']/form/select//option[1]"));
-        }
+        }*/
         type(By.name("group_header"), groupData.getHeader());
         type(By.name("group_footer"), groupData.getFooter());
     }
@@ -77,7 +78,7 @@ public class GroupHelper extends HelperBase {
         List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
         for (WebElement element : elements){
             String name = element.getText();
-            String id = element.findElement(By.tagName("input")).getAttribute("value");
+            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
             GroupData group = new GroupData(id, name,null,null);
             groups.add(group);
         }

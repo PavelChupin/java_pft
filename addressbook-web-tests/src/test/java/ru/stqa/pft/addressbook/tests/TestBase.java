@@ -17,7 +17,7 @@ public class TestBase  {
         app = new ApplicationManager(browserType);
     }
 */
-    @BeforeSuite
+    @BeforeSuite  //Что бы запускать браузер один раз и выполнять все тесты в данной сесии браузера
     public void setUp() throws Exception {
         app.init();
     }

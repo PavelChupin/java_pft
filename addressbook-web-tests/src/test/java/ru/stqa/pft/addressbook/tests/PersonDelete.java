@@ -1,6 +1,5 @@
 package ru.stqa.pft.addressbook.tests;
 
-import org.openqa.selenium.remote.BrowserType;
 import org.testng.annotations.Test;
 
 public class PersonDelete extends TestBase {
@@ -11,7 +10,7 @@ public class PersonDelete extends TestBase {
 */
     @Test(enabled = false)
     public void deletePerson() {
-        app.getNavigationHelper().gotoHomePage();
+        app.goTo().gotoHomePage();
         app.getPersonHelper().selectPerson();
         app.getPersonHelper().deleteSelectedPerson();
         app.getPersonHelper().alertWindowOk();

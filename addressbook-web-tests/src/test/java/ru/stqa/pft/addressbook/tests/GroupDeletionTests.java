@@ -1,6 +1,5 @@
 package ru.stqa.pft.addressbook.tests;
 
-import org.openqa.selenium.remote.BrowserType;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -17,30 +16,31 @@ public class GroupDeletionTests extends TestBase {
 
     @BeforeMethod //Вынесли в отдельный метод для подготовки площадки для теста
     public void ensurePreconditions(){
-        app.getNavigationHelper().gotoGroupPage();
-        if (! app.getGroupHelper().isThereGroup()){
-            app.getGroupHelper().createGroup(new GroupData("test1", null, null));
+        app.goTo().groupPage();
+        if (app.group().list().size() == 0){
+            app.group().create(new GroupData("test1", null, null));
         }
     }
 
     @Test
     public void testGroupDeletion() {
-        //int before = app.getGroupHelper().getGroupCount();
-        List<GroupData> before = app.getGroupHelper().getGroupList();
-        app.getGroupHelper().selectGroup(before.size() - 1);
-        app.getGroupHelper().deleteSelectedGroups();
-        app.getGroupHelper().returnGroupToPage();
-        //int after = app.getGroupHelper().getGroupCount();
-        List<GroupData> after = app.getGroupHelper().getGroupList();
+        //int before = app.group().getGroupCount();
+        List<GroupData> before = app.group().list();
+        int index = before.size() - 1;
+        app.group().delete(index);
+        //int after = app.group().getGroupCount();
+        List<GroupData> after = app.group().list();
         Assert.assertEquals(after.size(), before.size() - 1);
 
         /*before.remove(before.size() - 1);
         for(int i = 0;i < after.size();i++){
             Assert.assertEquals(before.get(i),after.get(i));
         }*/
-        before.remove(before.size() - 1);
+        before.remove(index);
         Assert.assertEquals(before,after);
     }
+
+
 
 
 }

@@ -9,11 +9,11 @@ import ru.stqa.pft.addressbook.model.PersonData;
  */
 public class PersonModification extends TestBase {
 
-    public PersonModification(){
+   /* public PersonModification(){
         super(BrowserType.CHROME);
     }
-
-    @Test
+*/
+    @Test(enabled = false)
     public void modificationPerson(){
         app.getNavigationHelper().gotoHomePage();
         app.getPersonHelper().selectPerson();

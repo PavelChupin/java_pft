@@ -5,12 +5,12 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.PersonData;
 
 public class PersonInsert extends TestBase {
-
+/*
     public PersonInsert(){
         super(BrowserType.FIREFOX);
     }
-
-    @Test
+*/
+    @Test(enabled = false)
     public void insertPerson() {
         //wd.findElement(By.id("nav")).click();
         app.getNavigationHelper().gotoAddNewPage();

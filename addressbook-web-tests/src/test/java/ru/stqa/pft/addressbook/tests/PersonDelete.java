@@ -4,12 +4,12 @@ import org.openqa.selenium.remote.BrowserType;
 import org.testng.annotations.Test;
 
 public class PersonDelete extends TestBase {
-
+/*
     public PersonDelete(){
         super(BrowserType.IE);
     }
-
-    @Test
+*/
+    @Test(enabled = false)
     public void deletePerson() {
         app.getNavigationHelper().gotoHomePage();
         app.getPersonHelper().selectPerson();

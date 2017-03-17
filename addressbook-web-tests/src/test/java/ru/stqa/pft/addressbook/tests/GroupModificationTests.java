@@ -34,7 +34,7 @@ public class GroupModificationTests extends TestBase {
     @Test
     public void testGroupModification() {
 
-        //int before = app.group().getGroupCount();
+        //int before = app.group().count();
         //List<GroupData> before = app.group().list();
         Groups before = app.group().all();
         GroupData modifiedGroup = before.iterator().next();
@@ -42,10 +42,11 @@ public class GroupModificationTests extends TestBase {
         GroupData group = new GroupData()
                 .withId(modifiedGroup.getId()).withName("test1").withFooter("test2").withHeader("test3");
         app.group().modify(group);
-        //int after = app.group().getGroupCount();
+        //int after = app.group().count();
         //List<GroupData> after = app.group().list();
+        assertEquals(app.group().count(), before.size());
         Groups after = app.group().all();
-        assertEquals(after.size(), before.size());
+        //assertEquals(after.size(), before.size());
 
        // before.remove(modifiedGroup);
        // before.add(group);
